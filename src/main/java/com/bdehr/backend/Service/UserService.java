@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
 public class UserService {
     @Autowired
@@ -19,11 +20,10 @@ public class UserService {
         String password = user.get("password");
         String email = user.get("email");
 
-        userRepo.save(new User(username, password, email));
+//        userRepo.save(new User(username, password, email));
         response.setStatus(201);
     }
 
-    @CrossOrigin(origins = "*")
     @GetMapping(path="test")
     public String getHello(){
         return "Hello";

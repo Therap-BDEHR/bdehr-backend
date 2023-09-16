@@ -1,13 +1,13 @@
 package com.bdehr.backend.Entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "user_table")
-public class User {
+@Table(name="doctor_table")
+public class Doctor{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -18,10 +18,8 @@ public class User {
     private String password;
     @Column(name="email")
     private String email;
-//    @Column(name="created_on",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-//    private Date created_on;
-    @Column(name="nid")
-    private String nid;
+    @Column(name="bmdc")
+    private String bmdc;
     @Column(name="dob")
     private Date dob;
     @Column(name="address")
@@ -33,14 +31,14 @@ public class User {
     @Column(name="phone")
     private String phone;
 
-    public User() {
+    public Doctor() {
     }
 
-    public User(String name, String password, String email, String nid, Date dob, String address, String gender, String photo, String phone) {
+    public Doctor(String name, String password, String email, String bmdc, Date dob, String address, String gender, String photo, String phone) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.nid = nid;
+        this.bmdc = bmdc;
         this.dob = dob;
         this.address = address;
         this.gender = gender;
@@ -48,12 +46,36 @@ public class User {
         this.phone = phone;
     }
 
-    public String getNid() {
-        return nid;
+    public String getName() {
+        return name;
     }
 
-    public void setNid(String nid) {
-        this.nid = nid;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBmdc() {
+        return bmdc;
+    }
+
+    public void setBmdc(String bmdc) {
+        this.bmdc = bmdc;
     }
 
     public Date getDob() {
@@ -95,37 +117,4 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
 }
