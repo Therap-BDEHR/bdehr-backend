@@ -4,6 +4,7 @@ import com.bdehr.backend.Entity.User;
 import com.bdehr.backend.Interface.UserRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +24,10 @@ public class UserService {
 
         userRepo.save(new User(username, password, email));
         response.setStatus(201);
+    }
+
+    @GetMapping(path="test")
+    public String getHello(){
+        return "Hello";
     }
 }
