@@ -18,8 +18,7 @@ public class User {
     private String password;
     @Column(name="email")
     private String email;
-    @Column(name="created_on")
-    @CreationTimestamp
+    @Column(name="created_on",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date created_on;
 
     public User(String username, String password, String email) {
