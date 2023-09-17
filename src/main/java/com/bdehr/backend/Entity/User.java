@@ -1,10 +1,13 @@
 package com.bdehr.backend.Entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "user_table")
 public class User {
@@ -33,9 +36,6 @@ public class User {
     @Column(name="phone")
     private String phone;
 
-    public User() {
-    }
-
     public User(String name, String password, String email, String nid, Date dob, String address, String gender, String photo, String phone) {
         this.name = name;
         this.password = password;
@@ -46,86 +46,6 @@ public class User {
         this.gender = gender;
         this.photo = photo;
         this.phone = phone;
-    }
-
-    public String getNid() {
-        return nid;
-    }
-
-    public void setNid(String nid) {
-        this.nid = nid;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 }

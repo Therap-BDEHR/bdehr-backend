@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="CrossOrigin">
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Typo Fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2DMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2DMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2PMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2PMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Medication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Medication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
-        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="com.haulmont.jpb.JpaEntity" />
       </list>
     </option>
   </component>
@@ -111,13 +119,29 @@
       <option name="project" value="LOCAL" />
       <updated>1694888097262</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Mapping Added">
+      <created>1694960219142</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694960219142</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Typo Fixed">
+      <created>1694960873816</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694960873816</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="No .gitignore" />
     <MESSAGE value="test deploy" />
     <MESSAGE value="CrossOrigin" />
-    <option name="LAST_COMMIT_MESSAGE" value="CrossOrigin" />
+    <MESSAGE value="Mapping Added" />
+    <MESSAGE value="Typo Fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Typo Fixed" />
   </component>
 </project>

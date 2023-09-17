@@ -1,9 +1,13 @@
 package com.bdehr.backend.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name="hospital_table")
 public class Hospital {
@@ -24,71 +28,12 @@ public class Hospital {
     @Column(name="email")
     private String email;
 
-    public Hospital() {
-    }
-
     public Hospital(String name, String password, Date dob, String address, String photo, String email) {
         this.name = name;
         this.password = password;
         this.dob = dob;
         this.address = address;
         this.photo = photo;
-        this.email = email;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
     }
 }

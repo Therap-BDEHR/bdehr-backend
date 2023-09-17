@@ -1,9 +1,13 @@
 package com.bdehr.backend.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name="medication_table")
 public class Medication {
@@ -27,9 +31,6 @@ public class Medication {
     @Column(name="prescription")
     private String prescription;
 
-    public Medication() {
-    }
-
     public Medication(int user_id, int hospital_id, int doctor_id, String prescription) {
         this.user_id = user_id;
         this.hospital_id = hospital_id;
@@ -37,43 +38,4 @@ public class Medication {
         this.prescription = prescription;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public int getHospital_id() {
-        return hospital_id;
-    }
-
-    public void setHospital_id(int hospital_id) {
-        this.hospital_id = hospital_id;
-    }
-
-    public int getDoctor_id() {
-        return doctor_id;
-    }
-
-    public void setDoctor_id(int doctor_id) {
-        this.doctor_id = doctor_id;
-    }
-
-    public Date getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
-    }
-
-    public String getPrescription() {
-        return prescription;
-    }
-
-    public void setPrescription(String prescription) {
-        this.prescription = prescription;
-    }
 }
