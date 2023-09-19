@@ -17,24 +17,24 @@ public class Report {
     private int id;
 
     @Column(name="user_id")
-    private int user_id;
+    private int userId;
 
     @Column(name="hospital_id")
-    private int hospital_id;
+    private int hospitalId;
 
     @Column(name="doctor_id")
-    private int doctor_id;
+    private int doctorId;
 
     @Column(name="created_at",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date created_at;
+    private Date createdAt;
 
     @Column(name="report")
     private String report;
 
-    public Report(int user_id, int hospital_id, int doctor_id, String report) {
-        this.user_id = user_id;
-        this.hospital_id = hospital_id;
-        this.doctor_id = doctor_id;
+    public Report(int userId, int hospitalId, int doctorId, String report) {
+        this.userId = userId;
+        this.hospitalId = hospitalId;
+        this.doctorId = doctorId;
         this.report = report;
     }
 }
