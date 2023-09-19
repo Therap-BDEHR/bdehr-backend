@@ -21,18 +21,21 @@ public class Hospital {
     private String password;
     @Column(name="dob")
     private Date dob;
-    @Column(name="address")
-    private String address;
+    @Column(name="longitude")
+    private float longitude;
+    @Column(name="longitude")
+    private float latitude;
     @Column(name="photo")
     private String photo;
     @Column(name="email")
     private String email;
 
-    public Hospital(String name, String password, Date dob, String address, String photo, String email) {
+    public Hospital(String name, String password, Date dob, float longitude, float latitude, String photo, String email) {
         this.name = name;
         this.password = password;
         this.dob = dob;
-        this.address = address;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.photo = photo;
         this.email = email;
     }
