@@ -23,7 +23,7 @@ public class Hospital {
     private Date dob;
     @Column(name="longitude")
     private float longitude;
-    @Column(name="longitude")
+    @Column(name="latitude")
     private float latitude;
     @Column(name="photo")
     private String photo;
