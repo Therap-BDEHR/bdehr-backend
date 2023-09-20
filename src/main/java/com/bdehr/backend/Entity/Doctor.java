@@ -24,7 +24,7 @@ public class Doctor{
     @Column(name="bmdc")
     private String bmdc;
     @Column(name="dob")
-    private Date dob;
+    private String dob;
     @Column(name="address")
     private String address;
     @Column(name="gender")
@@ -34,7 +34,7 @@ public class Doctor{
     @Column(name="phone")
     private String phone;
 
-    public Doctor(String name, String password, String email, String bmdc, Date dob, String address, String gender, String photo, String phone) {
+    public Doctor(String name, String password, String email, String bmdc, String dob, String address, String gender, String photo, String phone) {
         this.name = name;
         this.password = password;
         this.email = email;

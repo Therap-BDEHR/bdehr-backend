@@ -7,6 +7,4 @@ import java.util.List;
 import java.util.Optional;
 
 public interface H2DMapRepository extends JpaRepository<H2DMap, Integer> {
-    H2DMap findById(int id);
-    List<H2DMap> findByDoctorId(int doctorId);
 }

@@ -18,16 +18,9 @@ public class H2DMap{
     @Column(name="doctor_id")
     private int doctorId;
 
-    @Column(name="address")
-    private String address;
-
     public H2DMap(int hospital_id, int doctorId) {
         this.hospitalId = hospital_id;
         this.doctorId = doctorId;
     }
-    public H2DMap(int hospital_id, int doctorId, String address) {
-        this.hospitalId = hospital_id;
-        this.doctorId = doctorId;
-        this.address = address;
-    }
+
 }

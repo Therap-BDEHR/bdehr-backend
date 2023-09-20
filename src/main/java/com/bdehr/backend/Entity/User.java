@@ -26,7 +26,7 @@ public class User {
     @Column(name="nid")
     private String nid;
     @Column(name="dob")
-    private Date dob;
+    private String dob;
     @Column(name="address")
     private String address;
     @Column(name="gender")
@@ -36,7 +36,7 @@ public class User {
     @Column(name="phone")
     private String phone;
 
-    public User(String name, String password, String email, String nid, Date dob, String address, String gender, String photo, String phone) {
+    public User(String name, String password, String email, String nid, String dob, String address, String gender, String photo, String phone) {
         this.name = name;
         this.password = password;
         this.email = email;

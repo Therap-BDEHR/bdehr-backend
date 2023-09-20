@@ -24,7 +24,7 @@ public class H2PMap {
     @Column(name="status")
     private String status;
     @Column(name="admit_date",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date admin_date;
+    private Date admit_date;
 
     public H2PMap(int hospitalId, int patientId,int doctorId, String status) {
         this.hospitalId = hospitalId;
