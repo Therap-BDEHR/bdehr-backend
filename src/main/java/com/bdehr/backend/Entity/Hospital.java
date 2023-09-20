@@ -22,6 +22,8 @@ public class Hospital {
     private String name;
     @Column(name="password")
     private String password;
+    @Column(name="auth_password")
+    private String apassword;
     @Column(name="dob")
     private String dob;
     @Column(name="longitude")
@@ -35,7 +37,7 @@ public class Hospital {
     @Column(name="email")
     private String email;
 
-    public Hospital(String name, String password, String dob, String longitude, String latitude, String photo, String phone,String email) {
+    public Hospital(String name, String password, String apassword,String dob, String longitude, String latitude, String photo, String phone,String email) {
         this.name = name;
         this.password = password;
         this.dob = dob;

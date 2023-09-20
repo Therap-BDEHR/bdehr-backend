@@ -22,6 +22,7 @@ public class HospitalService {
     public void addHospital(@RequestParam Map<String, String> user, HttpServletResponse response){
         String name = user.get("name");
         String password = user.get("password");
+        String apassword = user.get("apassword");
         String dob = user.get("dob");
         String longitude = user.get("longitude");
         String latitude = user.get("latitude");
@@ -29,7 +30,7 @@ public class HospitalService {
         String phone = user.get("phone");
         String email = user.get("email");
 
-        hospitalRepo.save(new Hospital(name, password, dob, longitude, latitude, photo, phone, email));
+        hospitalRepo.saveAndFlush(new Hospital(name, password, apassword, dob, longitude, latitude, photo, phone, email));
     }
 
     @PostMapping(path="hospital/login")
