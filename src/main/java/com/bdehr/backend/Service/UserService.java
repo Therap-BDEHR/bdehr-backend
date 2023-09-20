@@ -58,8 +58,6 @@ public class UserService {
         int id = jo.getInt("id");
         String url = jo.getString("url");
 
-        System.out.println(id + " " + url);
-
         Optional<User> tmp = Optional.ofNullable(userRepo.findById(id));
         if(tmp.isPresent()){
             tmp.get().setPhoto(url);

@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Signup/Login Methods">
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="User profile methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Hospital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Doctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/DoctorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DoctorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/HospitalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/HospitalService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Hospital.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Hospital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/DoctorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/DoctorRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/UserRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DoctorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DoctorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/HospitalService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/HospitalService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695193853618</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="User profile methods">
+      <created>1695245197617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695245197617</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -184,6 +186,7 @@
     <MESSAGE value="Better Address" />
     <MESSAGE value="Twilio Trial" />
     <MESSAGE value="Signup/Login Methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Signup/Login Methods" />
+    <MESSAGE value="User profile methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="User profile methods" />
   </component>
 </project>

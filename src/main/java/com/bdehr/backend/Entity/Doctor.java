@@ -45,4 +45,15 @@ public class Doctor{
         this.photo = photo;
         this.phone = phone;
     }
+
+    public Doctor(String name, String password, String email, String bmdc, String dob, String address, String gender, String phone) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.bmdc = bmdc;
+        this.dob = dob;
+        this.address = address;
+        this.gender = gender;
+        this.phone = phone;
+    }
 }
