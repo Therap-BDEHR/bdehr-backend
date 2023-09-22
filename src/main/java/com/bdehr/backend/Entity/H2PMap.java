@@ -21,15 +21,21 @@ public class H2PMap {
     private int patientId;
     @Column(name="doctor_id")
     private int doctorId;
+    @Column(name="patient_name")
+    private String patientName;
+    @Column(name="patient_phone")
+    private String patientPhone;
     @Column(name="status")
     private String status;
     @Column(name="admit_date",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date admit_date;
 
-    public H2PMap(int hospitalId, int patientId,int doctorId, String status) {
+    public H2PMap(int hospitalId, int patientId, int doctorId, String patientName, String patientPhone, String status) {
         this.hospitalId = hospitalId;
         this.patientId = patientId;
         this.doctorId = doctorId;
+        this.patientName = patientName;
+        this.patientPhone = patientPhone;
         this.status = status;
     }
 }

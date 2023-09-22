@@ -5,5 +5,7 @@ import com.bdehr.backend.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface HospitalRepository extends JpaRepository<Hospital, Integer> {
-    User findByIdAndPassword (int id, String password);
+    Hospital findByIdAndPassword (int id, String password);
+    Hospital findById(int id);
+    Hospital findByName(String name);
 }

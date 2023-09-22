@@ -3,11 +3,6 @@ package com.bdehr.backend.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.Date;
-import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -40,10 +35,22 @@ public class Hospital {
     public Hospital(String name, String password, String apassword,String dob, String longitude, String latitude, String photo, String phone,String email) {
         this.name = name;
         this.password = password;
+        this.apassword = apassword;
         this.dob = dob;
         this.longitude = longitude;
         this.latitude = latitude;
         this.photo = photo;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public Hospital(String name, String password, String apassword,String dob, String longitude, String latitude, String phone,String email) {
+        this.name = name;
+        this.password = password;
+        this.apassword = apassword;
+        this.dob = dob;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.phone = phone;
         this.email = email;
     }

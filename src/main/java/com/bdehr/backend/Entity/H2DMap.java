@@ -17,10 +17,15 @@ public class H2DMap{
     private int hospitalId;
     @Column(name="doctor_id")
     private int doctorId;
+    @Column(name="speciality")
+    private String speciality;
+    @Column(name="degree")
+    private String degree;
 
-    public H2DMap(int hospital_id, int doctorId) {
-        this.hospitalId = hospital_id;
+    public H2DMap(int hospitalId, int doctorId, String speciality, String degree) {
+        this.hospitalId = hospitalId;
         this.doctorId = doctorId;
+        this.speciality = speciality;
+        this.degree = degree;
     }
-
 }
