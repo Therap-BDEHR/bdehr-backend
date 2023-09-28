@@ -38,10 +38,10 @@ public class Hospital {
     private int numDept;
     @Column(name="dept_list")
     private String deptList;
-    @Column(name="tool_list")
-    private String toolList;
+    @Column(name="lab_list")
+    private String labList;
 
-    public Hospital(String name, String password, String authPassword, String dob, String address, String longitude, String latitude, String photo, String logo, String phone, String email, int numDept, String deptList, String toolList) {
+    public Hospital(String name, String password, String authPassword, String dob, String address, String longitude, String latitude, String photo, String logo, String phone, String email, int numDept, String deptList, String labList) {
         this.name = name;
         this.password = password;
         this.authPassword = authPassword;
@@ -55,10 +55,10 @@ public class Hospital {
         this.email = email;
         this.numDept = numDept;
         this.deptList = deptList;
-        this.toolList = toolList;
+        this.labList = labList;
     }
 
-    public Hospital(String id, String name, String password, String authPassword, String dob, String address, String longitude, String latitude, String photo, String logo, String phone, String email, int numDept, String deptList, String toolList) {
+    public Hospital(String id, String name, String password, String authPassword, String dob, String address, String longitude, String latitude, String photo, String logo, String phone, String email, int numDept, String deptList, String labList) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -73,6 +73,6 @@ public class Hospital {
         this.email = email;
         this.numDept = numDept;
         this.deptList = deptList;
-        this.toolList = toolList;
+        this.labList = labList;
     }
 }

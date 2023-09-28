@@ -30,7 +30,7 @@ public class H2DMapService {
     private HospitalRepository hospitalRepo;
 
     @PostMapping(path="h2d/add-doctor")
-    private int addDoctor(@RequestParam Map<String, String> map){
+    private String addDoctor(@RequestParam Map<String, String> map){
         String hospitalId = map.get("hospitalId");
         String doctorId = map.get("doctorId");
         String speciality = map.get("speciality");
@@ -38,7 +38,7 @@ public class H2DMapService {
 
         Doctor tmp = null;
         tmp = doctorRepo.findById(doctorId);
-        if(tmp==null) return 0;
+        if(tmp==null) return "0";
 
         H2DMap h2d = new H2DMap(hospitalId, doctorId, speciality, degree);
 
@@ -55,25 +55,36 @@ public class H2DMapService {
 
         h2dMapRepo.saveAndFlush(h2d);
         System.out.println("H2D Add Doctor: "+ h2d);
-        return 1;
+        return "1";
     }
 
     @PostMapping(path="h2d/get-doctor-list")
-    private List<Doctor> getDoctorList(HttpEntity<String> httpEntity){
+    private List<String> getDoctorList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         String hospitalId = jo.getString("hospitalId");
 
         List<H2DMap> h2dList = new ArrayList<>();
-        List<Doctor> doctorList = new ArrayList<>();
 
         h2dList = h2dMapRepo.findByHospitalId(hospitalId);
 
+        List<String> stringList = new ArrayList<>();
+
         for(H2DMap h2d : h2dList){
             Doctor doctor = doctorRepo.findById(h2d.getDoctorId());
-            doctorList.add(doctor);
+
+            JSONObject tmp = new JSONObject();
+
+            tmp.put("id",doctor.getId());
+            tmp.put("name",doctor.getName());
+            tmp.put("photo",doctor.getPhoto());
+
+            tmp.put("speciality",h2d.getSpeciality());
+            tmp.put("degree",h2d.getDegree());
+
+            stringList.add(tmp.toString());
         }
 
-        return doctorList;
+        return stringList;
     }
 
     @PostMapping(path="h2d/get-hospital-list")

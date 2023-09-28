@@ -58,7 +58,6 @@ public class H2PMapService {
         String hospitalId = jo.getString("hospitalId");
 
         List<H2PMap> h2pList = new ArrayList<>();
-        List<User> userList = new ArrayList<>();
 
         h2pList = h2pMapRepo.findByHospitalId(hospitalId);
 
@@ -66,7 +65,6 @@ public class H2PMapService {
 
         for(H2PMap h2p : h2pList){
             User user = userRepo.findById(h2p.getPatientId());
-            userList.add(user);
 
             JSONObject tmp = new JSONObject();
 
