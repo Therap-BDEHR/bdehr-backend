@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.print.Doc;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
@@ -22,30 +23,42 @@ public class DoctorService {
     private DoctorRepository doctorRepo;
 
     @PostMapping(path="doctor/signup")
-    public int addDoctor(@RequestParam Map<String, String> user){
-        String name = user.get("name");
-        String password = user.get("password");
-        String email = user.get("email");
-        String bmdc = user.get("bmdc");
-        String dob = user.get("dob");
-        String address = user.get("address");
-        String gender = user.get("gender");
-//        String photo = user.get("photo");
-        String phone = user.get("phone");
+    public String addDoctor(@RequestParam Map<String, String> map){
+        String name = map.get("name");
+        String password = map.get("password");
+        String email = map.get("email");
+        String bmdc = map.get("bmdc");
+        String dob = map.get("dob");
+        String address = map.get("address");
+        String gender = map.get("gender");
+        String phone = map.get("phone");
 
         Doctor tmp = null;
         tmp = doctorRepo.findByBmdc(bmdc);
 
-        if(tmp!=null) return 0;
+        if(tmp!=null) return "0";
 
-        tmp = doctorRepo.saveAndFlush(new Doctor(name, password, email, bmdc, dob, address, gender, phone));
-        System.out.println("Doctor Signup: "+tmp);
-        return tmp.getId();
+        Doctor doctor = new Doctor(name, password, email, bmdc, dob, address, gender, phone);
+
+        String customId;
+        while(true) {
+            UUID uuid = UUID.randomUUID();
+            customId = uuid.toString().substring(0, 8); // Take the first 8 characters
+            if(doctorRepo.findById(customId) == null){
+                break;
+            }
+        }
+
+        doctor.setId(customId);
+
+        doctorRepo.saveAndFlush(doctor);
+        System.out.println("Doctor Signup: "+doctor);
+        return doctor.getId();
     }
 
     @PostMapping(path="doctor/login")
     public Doctor loginDoctor(@RequestParam Map<String, String> doctor){
-        int id = Integer.parseInt(doctor.get("id"));
+        String id = doctor.get("id");
         String password = doctor.get("password");
 
         Doctor tmp = null;
@@ -57,7 +70,7 @@ public class DoctorService {
     @PostMapping(path="doctor/change-photo")
     public void changePhoto(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
-        int id = jo.getInt("id");
+        String id = jo.getString("id");
         String url = jo.getString("url");
 
         Optional<Doctor> tmp = Optional.ofNullable(doctorRepo.findById(id));
@@ -71,7 +84,7 @@ public class DoctorService {
     public void updateDoctor(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         System.out.println(jo);
-        int id = jo.getInt("doctor_id");
+        String id = jo.getString("user_id");
         String name = jo.getString("name");
         String email = jo.getString("email");
         String bmdc = jo.getString("bmdc");

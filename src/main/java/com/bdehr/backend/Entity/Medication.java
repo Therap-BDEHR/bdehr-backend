@@ -12,18 +12,17 @@ import java.util.Date;
 @Table(name="medication_table")
 public class Medication {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private String id;
 
     @Column(name="user_id")
-    private int userId;
+    private String userId;
 
     @Column(name="hospital_id")
-    private int hospitalId;
+    private String hospitalId;
 
     @Column(name="doctor_id")
-    private int doctorId;
+    private String doctorId;
 
     @Column(name="created_at",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt;
@@ -31,7 +30,7 @@ public class Medication {
     @Column(name="prescription")
     private String prescription;
 
-    public Medication(int userId, int hospitalId, int doctorId, String prescription) {
+    public Medication(String userId, String hospitalId, String doctorId, String prescription) {
         this.userId = userId;
         this.hospitalId = hospitalId;
         this.doctorId = doctorId;

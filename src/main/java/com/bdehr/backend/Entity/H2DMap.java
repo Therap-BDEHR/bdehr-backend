@@ -10,19 +10,18 @@ import lombok.NoArgsConstructor;
 @Table(name = "h2d_map")
 public class H2DMap{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private String id;
     @Column(name="hospital_id")
-    private int hospitalId;
+    private String hospitalId;
     @Column(name="doctor_id")
-    private int doctorId;
+    private String doctorId;
     @Column(name="speciality")
     private String speciality;
     @Column(name="degree")
     private String degree;
 
-    public H2DMap(int hospitalId, int doctorId, String speciality, String degree) {
+    public H2DMap(String hospitalId, String doctorId, String speciality, String degree) {
         this.hospitalId = hospitalId;
         this.doctorId = doctorId;
         this.speciality = speciality;

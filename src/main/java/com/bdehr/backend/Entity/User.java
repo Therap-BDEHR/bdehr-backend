@@ -12,17 +12,14 @@ import java.util.Date;
 @Table(name = "user_table")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private String id;
     @Column(name="name")
     private String name;
     @Column(name="password")
     private String password;
     @Column(name="email")
     private String email;
-//    @Column(name="created_on",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-//    private Date created_on;
     @Column(name="nid")
     private String nid;
     @Column(name="dob")

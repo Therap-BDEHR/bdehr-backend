@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
@@ -25,76 +26,89 @@ public class H2PMapService {
 
     @PostMapping(path="h2p/add-patient")
     private int addPatient(@RequestParam Map<String, String> map){
-        int hospitalId = Integer.parseInt(map.get("hospitalId"));
-        int doctorId = Integer.parseInt(map.get("doctorId"));
-        int patientId = Integer.parseInt(map.get("patientId"));
+        String hospitalId = map.get("hospitalId");
+        String doctorId = map.get("doctorId");
+        String patientId = map.get("patientId");
         String patientName = map.get("patientName");
         String patientPhone = map.get("patientPhone");
         String status = map.get("status");
 
-        h2pMapRepo.saveAndFlush(new H2PMap(hospitalId, patientId, doctorId, patientName, patientPhone, status));
-//        System.out.println("H2P Add Patient: "+tmp);
+        H2PMap h2p = new H2PMap(hospitalId, patientId, doctorId, patientName, patientPhone, status);
+
+        String customId;
+        while(true) {
+            UUID uuid = UUID.randomUUID();
+            customId = uuid.toString().substring(0, 8); // Take the first 8 characters
+            if(h2pMapRepo.findById(customId) == null){
+                break;
+            }
+        }
+
+        h2p.setId(customId);
+
+
+        h2pMapRepo.saveAndFlush(h2p);
+        System.out.println("H2P Add Patient: "+h2p);
         return 1;
     }
 
     @PostMapping(path="h2p/get-patient-list")
-    private Pair<List<H2PMap>, List<User>> getPatientList(HttpEntity<String> httpEntity){
+    private List<String> getPatientList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
-        int hospitalId = jo.getInt("hospitalId");
+        String hospitalId = jo.getString("hospitalId");
 
         List<H2PMap> h2pList = new ArrayList<>();
         List<User> userList = new ArrayList<>();
 
         h2pList = h2pMapRepo.findByHospitalId(hospitalId);
 
+        List<String> stringList = new ArrayList<>();
+
         for(H2PMap h2p : h2pList){
             User user = userRepo.findById(h2p.getPatientId());
             userList.add(user);
+
+            JSONObject tmp = new JSONObject();
+
+            tmp.put("patientName",h2p.getPatientName());
+            tmp.put("patientId",h2p.getPatientId());
+            tmp.put("hospitalId",h2p.getHospitalId());
+            tmp.put("doctorId",h2p.getDoctorId());
+            tmp.put("patientPhone",h2p.getPatientPhone());
+            tmp.put("status",h2p.getStatus());
+            tmp.put("admitDate",h2p.getAdmitDate());
+
+            tmp.put("dob",user.getDob());
+            tmp.put("photo",user.getPhoto());
+
+            stringList.add(tmp.toString());
         }
 
-        return Pair.of(h2pList, userList);
+        return stringList;
     }
-
-    @GetMapping(path="h2p/test")
-    private Pair<List<H2PMap>, List<User>> h2pTest(){
-        List<H2PMap> h2pList = new ArrayList<>();
-        List<User> userList = new ArrayList<>();
-
-        h2pList.add(new H2PMap(1,1,11,"Pial","1111","Well"));
-        h2pList.add(new H2PMap(2,2,22,"Sakib","2222","Sleeping"));
-        h2pList.add(new H2PMap(3,3,33,"Salman","3333","Injured"));
-
-        userList.add(new User(
-           "Rakib",
-           "12345",
-                "rakib@gmail.com",
-                "1905098",
-                "10/04/2000",
-                "Barisal",
-                "Male",
-                "67890"
-        ));
-        userList.add(new User(
-                "Rifat",
-                "12342",
-                "rifat@gmail.com",
-                "1905094",
-                "13/07/2000",
-                "Banani",
-                "Male",
-                "45624"
-        ));
-        userList.add(new User(
-                "Nafi",
-                "13454",
-                "nafi@gmail.com",
-                "1905100",
-                "25/01/2000",
-                "Jessore",
-                "Male",
-                "45486"
-        ));
-
-        return Pair.of(h2pList, userList);
-    }
+//
+//    @GetMapping(path="h2p/test")
+//    private List<String> h2pTest(){
+//        List<H2PMap> h2pList = new ArrayList<>();
+//        List<User> userList = new ArrayList<>();
+//
+//        List<String> stringList = new ArrayList<>();
+//
+//        JSONObject tmp1 = new JSONObject();
+//        tmp1.put("name","Pial");
+//        tmp1.put("roll","1905112");
+//        stringList.add(tmp1.toString());
+//
+//        JSONObject tmp2 = new JSONObject();
+//        tmp2.put("name","Pial");
+//        tmp2.put("roll","1905098");
+//        stringList.add(tmp2.toString());
+//
+//        JSONObject tmp3 = new JSONObject();
+//        tmp3.put("name","Sakib");
+//        tmp3.put("roll","1905061");
+//        stringList.add(tmp3.toString());
+//
+//        return stringList;
+//    }
 }

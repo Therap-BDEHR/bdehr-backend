@@ -4,23 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Wrong variable name fixed">
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="H2P, H2D endpoints created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Doctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2DMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2DMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2PMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/H2PMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Medication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Medication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/DoctorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/H2DMapRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/H2DMapRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/H2PMapRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/H2PMapRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/HospitalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/HospitalRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/MedicationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/MedicationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/ReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/ReportRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DoctorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2DMapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2DMapService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2PMapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2PMapService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/HospitalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/HospitalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Doctor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/H2DMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/H2DMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/H2PMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/H2PMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Hospital.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Hospital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Medication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Medication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Report.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/DoctorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/DoctorRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/H2DMapRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/H2DMapRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/H2PMapRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/H2PMapRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/HospitalRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/HospitalRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/MedicationRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/MedicationRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/ReportRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/ReportRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DoctorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DoctorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2DMapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2DMapService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2PMapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2PMapService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/HospitalService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/HospitalService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +54,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
-        <option value="Interface" />
         <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -187,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695248678233</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="H2P, H2D endpoints created">
+      <created>1695369747617</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1695369747617</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -202,6 +232,7 @@
     <MESSAGE value="Signup/Login Methods" />
     <MESSAGE value="User profile methods" />
     <MESSAGE value="Wrong variable name fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrong variable name fixed" />
+    <MESSAGE value="H2P, H2D endpoints created" />
+    <option name="LAST_COMMIT_MESSAGE" value="H2P, H2D endpoints created" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.bdehr.backend.Entity;
 
+import com.bdehr.backend.Interface.H2PMapRepository;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,15 +13,14 @@ import java.util.Date;
 @Table(name = "h2p_map")
 public class H2PMap {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private String id;
     @Column(name="hospital_id")
-    private int hospitalId;
+    private String hospitalId;
     @Column(name="patient_id")
-    private int patientId;
+    private String patientId;
     @Column(name="doctor_id")
-    private int doctorId;
+    private String doctorId;
     @Column(name="patient_name")
     private String patientName;
     @Column(name="patient_phone")
@@ -28,9 +28,9 @@ public class H2PMap {
     @Column(name="status")
     private String status;
     @Column(name="admit_date",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date admit_date;
+    private Date admitDate;
 
-    public H2PMap(int hospitalId, int patientId, int doctorId, String patientName, String patientPhone, String status) {
+    public H2PMap(String hospitalId, String patientId, String doctorId, String patientName, String patientPhone, String status) {
         this.hospitalId = hospitalId;
         this.patientId = patientId;
         this.doctorId = doctorId;

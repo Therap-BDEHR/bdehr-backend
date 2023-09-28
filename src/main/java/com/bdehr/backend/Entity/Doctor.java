@@ -12,9 +12,8 @@ import java.util.Date;
 @Table(name="doctor_table")
 public class Doctor{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private String id;
     @Column(name="name")
     private String name;
     @Column(name="password")

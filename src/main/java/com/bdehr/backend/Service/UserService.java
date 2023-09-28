@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
@@ -19,31 +20,42 @@ public class UserService {
     private UserRepository userRepo;
 
     @PostMapping(path="user/signup")
-    public int addUser(@RequestParam Map<String, String> user){
-        String name = user.get("name");
-        String password = user.get("password");
-        String email = user.get("email");
-        String nid = user.get("nid");
-        String dob = user.get("dob");
-        String address = user.get("address");
-        String gender = user.get("gender");
-        //String photo = user.get("photo");
-        String phone = user.get("phone");
+    public String addUser(@RequestParam Map<String, String> map){
+        String name = map.get("name");
+        String password = map.get("password");
+        String email = map.get("email");
+        String nid = map.get("nid");
+        String dob = map.get("dob");
+        String address = map.get("address");
+        String gender = map.get("gender");
+        String phone = map.get("phone");
 
         User tmp = null;
         tmp = userRepo.findByNid(nid);
 
-        if(tmp!=null) return 0;
+        if(tmp!=null) return "0";
 
-//        tmp = userRepo.saveAndFlush(new User(name, password, email, nid, dob, address, gender, photo, phone));
-        tmp = userRepo.saveAndFlush(new User(name, password, email, nid, dob, address, gender, phone));
-        System.out.println("User Signup: "+tmp);
-        return tmp.getId();
+        User user = new User(name, password, email, nid, dob, address, gender, phone);
+
+        String customId;
+        while(true) {
+            UUID uuid = UUID.randomUUID();
+            customId = uuid.toString().substring(0, 8); // Take the first 8 characters
+            if(userRepo.findById(customId) == null){
+                break;
+            }
+        }
+
+        user.setId(customId);
+
+        userRepo.saveAndFlush(user);
+        System.out.println("User Signup: "+user);
+        return user.getId();
     }
 
     @PostMapping(path="user/login")
     public User loginUser(@RequestParam Map<String, String> user){
-        int id = Integer.parseInt(user.get("id"));
+        String id = user.get("id");
         String password = user.get("password");
 
         User tmp = null;
@@ -55,7 +67,7 @@ public class UserService {
     @PostMapping(path="user/change-photo")
     public void changePhoto(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
-        int id = jo.getInt("id");
+        String id = jo.getString("id");
         String url = jo.getString("url");
 
         Optional<User> tmp = Optional.ofNullable(userRepo.findById(id));
@@ -69,7 +81,7 @@ public class UserService {
     public void updateUser(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         System.out.println(jo);
-        int id = jo.getInt("user_id");
+        String id = jo.getString("user_id");
         String name = jo.getString("name");
         String email = jo.getString("email");
         String nid = jo.getString("nid");

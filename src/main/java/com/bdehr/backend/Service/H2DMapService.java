@@ -15,6 +15,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
@@ -30,8 +31,8 @@ public class H2DMapService {
 
     @PostMapping(path="h2d/add-doctor")
     private int addDoctor(@RequestParam Map<String, String> map){
-        int hospitalId = Integer.parseInt(map.get("hospitalId"));
-        int doctorId = Integer.parseInt(map.get("doctorId"));
+        String hospitalId = map.get("hospitalId");
+        String doctorId = map.get("doctorId");
         String speciality = map.get("speciality");
         String degree = map.get("degree");
 
@@ -39,15 +40,28 @@ public class H2DMapService {
         tmp = doctorRepo.findById(doctorId);
         if(tmp==null) return 0;
 
-        h2dMapRepo.saveAndFlush(new H2DMap(hospitalId, doctorId, speciality, degree));
-        System.out.println("H2D Add Doctor: "+ tmp);
+        H2DMap h2d = new H2DMap(hospitalId, doctorId, speciality, degree);
+
+        String customId;
+        while(true) {
+            UUID uuid = UUID.randomUUID();
+            customId = uuid.toString().substring(0, 8); // Take the first 8 characters
+            if(h2dMapRepo.findById(customId) == null){
+                break;
+            }
+        }
+
+        h2d.setId(customId);
+
+        h2dMapRepo.saveAndFlush(h2d);
+        System.out.println("H2D Add Doctor: "+ h2d);
         return 1;
     }
 
     @PostMapping(path="h2d/get-doctor-list")
     private List<Doctor> getDoctorList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
-        int hospitalId = jo.getInt("hospitalId");
+        String hospitalId = jo.getString("hospitalId");
 
         List<H2DMap> h2dList = new ArrayList<>();
         List<Doctor> doctorList = new ArrayList<>();
@@ -65,7 +79,7 @@ public class H2DMapService {
     @PostMapping(path="h2d/get-hospital-list")
     private List<Hospital> getHospitalList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
-        int doctorId = jo.getInt("doctorId");
+        String doctorId = jo.getString("doctorId");
 
         List<H2DMap> h2dList = new ArrayList<>();
         List<Hospital> hospitalList = new ArrayList<>();
