@@ -1,19 +1,15 @@
 package com.bdehr.backend.Service;
 
 import com.bdehr.backend.Entity.Hospital;
+import com.bdehr.backend.Entity.Machine;
 import com.bdehr.backend.Interface.HospitalRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
@@ -83,43 +79,29 @@ public class HospitalService {
         return tmp;
     }
 
-//    @PostMapping(path="hospital/change-photo")
-//    public void changePhoto(HttpEntity<String> httpEntity){
-//        JSONObject jo = new JSONObject(httpEntity.getBody());
-//        String id = jo.getString("id");
-//        String url = jo.getString("url");
-//
-//        Optional<Hospital> tmp = Optional.ofNullable(hospitalRepo.findById(id));
-//        if(tmp.isPresent()){
-//            tmp.get().setPhoto(url);
-//            hospitalRepo.saveAndFlush(tmp.get());
-//        }
-//    }
+    @PostMapping(path="hospital/get-hospital-info")
+    public Hospital getHospitalInfo(HttpEntity<String> httpEntity) {
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+        String hospitalId = jo.getString("hospitalId");
 
-//    @PostMapping(path="hospital/update-hospital")
-//    public void updateDoctor(HttpEntity<String> httpEntity){
-//        JSONObject jo = new JSONObject(httpEntity.getBody());
-//        System.out.println(jo);
-//        String id = jo.getString("hospital_id");
-//        String name = jo.getString("name");
-//        String email = jo.getString("email");
-//        String dob = jo.getString("dob");
-//        String longitude = jo.getString("longitude");
-//        String latitude = jo.getString("latitude");
-//        String photo = jo.getString("hospitalImage");
-//        String phone = jo.getString("phone");
-//
-//        Optional<Hospital> tmp = Optional.ofNullable(hospitalRepo.findById(id));
-//        if(tmp.isPresent()){
-//            tmp.get().setEmail(email);
-//            tmp.get().setLatitude(latitude);
-//            tmp.get().setLongitude(longitude);
-//            tmp.get().setDob(dob);
-//            tmp.get().setPhoto(photo);
-//            tmp.get().setPhone(phone);
-//            tmp.get().setName(name);
-//            hospitalRepo.saveAndFlush(tmp.get());
-//        }
-//    }
+        return hospitalRepo.findById(hospitalId);
+    }
 
+    @GetMapping(path="hospital/get-all-location")
+    public List<String> getAllLocation(){
+        List<Hospital> hospitalList = hospitalRepo.findAll();
+        List<String> stringList = new ArrayList<>();
+
+        for(Hospital hospital: hospitalList){
+            JSONObject tmp = new JSONObject();
+
+            tmp.put("latitude",hospital.getLatitude());
+            tmp.put("longitude",hospital.getLongitude());
+            tmp.put("name",hospital.getName());
+
+            stringList.add(tmp.toString());
+        }
+
+        return stringList;
+    }
 }

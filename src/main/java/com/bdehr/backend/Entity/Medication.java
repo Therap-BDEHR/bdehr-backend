@@ -15,8 +15,8 @@ public class Medication {
     @Column(name="id")
     private String id;
 
-    @Column(name="user_id")
-    private String userId;
+    @Column(name="patient_id")
+    private String patientId;
 
     @Column(name="age")
     private int age;
@@ -33,20 +33,37 @@ public class Medication {
     @Column(name="created_at")
     private String createdAt;
 
-    @Column(name="form")
+    @Column(name="is_done") // yes, no
+    private String isDone;
+
+    @Column(name="form", columnDefinition = "TEXT")
     private String form;
 
-    @Column(name="url")
-    private String url;
+    @Column(name="medication_url")
+    private String medicationUrl;
 
-    public Medication(String userId, int age, String gender, String hospitalId, String doctorId, String createdAt, String form, String url) {
-        this.userId = userId;
+    @Column(name="diagnosis_url")
+    private String diagnosisUrl;
+
+    @Column(name="hospital_name")
+    private String hospitalName;
+
+    @Column(name="doctor_name")
+    private String doctorName;
+
+    @Column(name="problem")
+    private String problem;
+
+    public Medication(String patientId, int age, String gender, String hospitalId, String doctorId, String createdAt, String isDone, String form, String hospitalName, String doctorName) {
+        this.patientId = patientId;
         this.age = age;
         this.gender = gender;
         this.hospitalId = hospitalId;
         this.doctorId = doctorId;
         this.createdAt = createdAt;
+        this.isDone = isDone;
         this.form = form;
-        this.url = url;
+        this.hospitalName = hospitalName;
+        this.doctorName = doctorName;
     }
 }

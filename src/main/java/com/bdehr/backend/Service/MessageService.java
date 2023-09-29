@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
 @RestController
@@ -25,7 +26,7 @@ public class MessageService {
         String text = jo.getString("text");
         String sender = jo.getString("sender");
 
-        Message message = new Message(text, sender, "unread");
+        Message message = new Message(text, sender, "unread",java.time.LocalDateTime.now().toString());
         messageRepo.saveAndFlush(message);
     }
 
@@ -40,7 +41,7 @@ public class MessageService {
         List<Message> messageList = messageRepo.findAll();
 
         for(Message message: messageList){
-            if(message.getStatus()=="unread") {
+            if(Objects.equals(message.getStatus(), "unread")) {
                 message.setStatus("read");
                 messageRepo.saveAndFlush(message);
             }

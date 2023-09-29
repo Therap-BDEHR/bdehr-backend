@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*" )
@@ -19,19 +21,18 @@ public class MachineService {
     MachineRepository machineRepo;
 
     @PostMapping(path="machine/add-machine")
-    public void addMachine(HttpEntity<String> httpEntity) {
-        JSONObject jo = new JSONObject(httpEntity.getBody());
+    public int addMachine(@RequestParam Map<String, String> map) {
+        String name = map.get("name");
+        String labId = map.get("labId");
+        String model = map.get("model");
+        String company = map.get("company");
+        String iDate = map.get("iDate");
 
-        String name = jo.getString("name");
-        String labId = jo.getString("labId");
-        String model = jo.getString("model");
-        String company = jo.getString("company");
-        String iDate = jo.getString("iDate");
-//        String photo = jo.getString("photo");
-
-        Machine machine = new Machine(name, labId, model, company, iDate, java.time.LocalDate.now().toString());
+        Machine machine = new Machine(name, labId, model, company, iDate);
         System.out.println("Add Machine: "+machine);
-        machineRepo.saveAndFlush(machine);
+        Machine tmp = machineRepo.saveAndFlush(machine);
+
+        return tmp.getId();
     }
 
     @PostMapping(path="machine/change-photo")

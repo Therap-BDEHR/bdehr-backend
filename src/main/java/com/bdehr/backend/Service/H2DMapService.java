@@ -6,6 +6,7 @@ import com.bdehr.backend.Entity.Hospital;
 import com.bdehr.backend.Interface.DoctorRepository;
 import com.bdehr.backend.Interface.H2DMapRepository;
 import com.bdehr.backend.Interface.HospitalRepository;
+import jakarta.transaction.Transactional;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -24,13 +25,13 @@ public class H2DMapService {
     private H2DMapRepository h2dMapRepo;
 
     @Autowired
-    private DoctorRepository doctorRepo;
+    DoctorRepository doctorRepo;
 
     @Autowired
-    private HospitalRepository hospitalRepo;
+    HospitalRepository hospitalRepo;
 
     @PostMapping(path="h2d/add-doctor")
-    private String addDoctor(@RequestParam Map<String, String> map){
+    public String addDoctor(@RequestParam Map<String, String> map){
         String hospitalId = map.get("hospitalId");
         String doctorId = map.get("doctorId");
         String speciality = map.get("speciality");
@@ -59,7 +60,7 @@ public class H2DMapService {
     }
 
     @PostMapping(path="h2d/get-doctor-list")
-    private List<String> getDoctorList(HttpEntity<String> httpEntity){
+    public List<String> getDoctorList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         String hospitalId = jo.getString("hospitalId");
 
@@ -74,7 +75,8 @@ public class H2DMapService {
 
             JSONObject tmp = new JSONObject();
 
-            tmp.put("id",doctor.getId());
+            tmp.put("id",h2d.getId());
+            tmp.put("doctorId",doctor.getId());
             tmp.put("name",doctor.getName());
             tmp.put("photo",doctor.getPhoto());
 
@@ -88,7 +90,7 @@ public class H2DMapService {
     }
 
     @PostMapping(path="h2d/get-doctor-cnt")
-    private int getDoctorCnt(HttpEntity<String> httpEntity){
+    public int getDoctorCnt(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         String hospitalId = jo.getString("hospitalId");
 
@@ -98,7 +100,7 @@ public class H2DMapService {
     }
 
     @PostMapping(path="h2d/get-hospital-list")
-    private List<Hospital> getHospitalList(HttpEntity<String> httpEntity){
+    public List<Hospital> getHospitalList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         String doctorId = jo.getString("doctorId");
 
@@ -113,6 +115,16 @@ public class H2DMapService {
         }
 
         return hospitalList;
+    }
+
+    @Transactional
+    @PostMapping(path="h2d/remove-doctor")
+    public void removeDoctor(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+        String id = jo.getString("id");
+        System.out.println(id);
+
+        h2dMapRepo.deleteById(id);
     }
 
 }

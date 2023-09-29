@@ -52,4 +52,13 @@ public class H2PMap {
         this.status = status;
         this.admitDate = admitDate;
     }
+
+    public H2PMap(String hospitalId, String patientId, String patientName, String patientPhone, String status, String admitDate) {
+        this.hospitalId = hospitalId;
+        this.patientId = patientId;
+        this.patientName = patientName;
+        this.patientPhone = patientPhone;
+        this.status = status;
+        this.admitDate = admitDate;
+    }
 }

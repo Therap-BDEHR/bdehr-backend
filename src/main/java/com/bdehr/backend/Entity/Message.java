@@ -26,12 +26,13 @@ public class Message{
     @Column(name="status") //read, unread
     private String status;
 
-    @Column(name="sent_at",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date sentAt;
+    @Column(name="sent_at")
+    private String sentAt;
 
-    public Message(String text, String sender, String status) {
+    public Message(String text, String sender, String status, String sentAt) {
         this.text = text;
         this.sender = sender;
         this.status = status;
+        this.sentAt = sentAt;
     }
 }
