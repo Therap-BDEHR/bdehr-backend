@@ -40,4 +40,12 @@ public class Machine{
         this.iDate = iDate;
         this.photo = photo;
     }
+
+    public Machine(String name, String labId, String model, String company, String iDate) {
+        this.name = name;
+        this.labId = labId;
+        this.model = model;
+        this.company = company;
+        this.iDate = iDate;
+    }
 }

@@ -25,15 +25,20 @@ public class H2PMapService {
     private UserRepository userRepo;
 
     @PostMapping(path="h2p/add-patient")
-    private int addPatient(@RequestParam Map<String, String> map){
+    private String addPatient(@RequestParam Map<String, String> map){
         String hospitalId = map.get("hospitalId");
         String doctorId = map.get("doctorId");
+        String labId = map.get("labId");
         String patientId = map.get("patientId");
         String patientName = map.get("patientName");
         String patientPhone = map.get("patientPhone");
         String status = map.get("status");
 
-        H2PMap h2p = new H2PMap(hospitalId, patientId, doctorId, patientName, patientPhone, status);
+        User tmp = null;
+        tmp = userRepo.findById(patientId);
+        if(tmp==null) return "0";
+
+        H2PMap h2p = new H2PMap(hospitalId, patientId, doctorId, labId, patientName, patientPhone, status, java.time.LocalDate.now().toString());
 
         String customId;
         while(true) {
@@ -46,14 +51,13 @@ public class H2PMapService {
 
         h2p.setId(customId);
 
-
         h2pMapRepo.saveAndFlush(h2p);
         System.out.println("H2P Add Patient: "+h2p);
-        return 1;
+        return "1";
     }
 
-    @PostMapping(path="h2p/get-patient-list")
-    private List<String> getPatientList(HttpEntity<String> httpEntity){
+    @PostMapping(path="h2p/get-hospital-patient-list")
+    private List<String> getHospitalPatientList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         String hospitalId = jo.getString("hospitalId");
 
@@ -68,10 +72,12 @@ public class H2PMapService {
 
             JSONObject tmp = new JSONObject();
 
+            tmp.put("id",h2p.getId());
             tmp.put("patientName",h2p.getPatientName());
             tmp.put("patientId",h2p.getPatientId());
             tmp.put("hospitalId",h2p.getHospitalId());
             tmp.put("doctorId",h2p.getDoctorId());
+            tmp.put("labId",h2p.getLabId());
             tmp.put("patientPhone",h2p.getPatientPhone());
             tmp.put("status",h2p.getStatus());
             tmp.put("admitDate",h2p.getAdmitDate());
@@ -84,29 +90,122 @@ public class H2PMapService {
 
         return stringList;
     }
-//
-//    @GetMapping(path="h2p/test")
-//    private List<String> h2pTest(){
-//        List<H2PMap> h2pList = new ArrayList<>();
-//        List<User> userList = new ArrayList<>();
-//
-//        List<String> stringList = new ArrayList<>();
-//
-//        JSONObject tmp1 = new JSONObject();
-//        tmp1.put("name","Pial");
-//        tmp1.put("roll","1905112");
-//        stringList.add(tmp1.toString());
-//
-//        JSONObject tmp2 = new JSONObject();
-//        tmp2.put("name","Pial");
-//        tmp2.put("roll","1905098");
-//        stringList.add(tmp2.toString());
-//
-//        JSONObject tmp3 = new JSONObject();
-//        tmp3.put("name","Sakib");
-//        tmp3.put("roll","1905061");
-//        stringList.add(tmp3.toString());
-//
-//        return stringList;
-//    }
+
+    @PostMapping(path="h2p/get-hospital-patient-cnt")
+    private int getHospitalPatientCnt(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+        String hospitalId = jo.getString("hospitalId");
+
+        List<H2PMap> h2pList = h2pMapRepo.findByHospitalId(hospitalId);
+//        System.out.println("Patient Cnt: "+h2pList.size());
+        return h2pList.size();
+    }
+
+    @PostMapping(path="h2p/get-doctor-patient-list")
+    private List<String> getDoctorPatientList(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+
+        String hospitalId = jo.getString("hospitalId");
+        String doctorId = jo.getString("doctorId");
+
+        List<H2PMap> h2pList = new ArrayList<>();
+
+        h2pList = h2pMapRepo.findByDoctorIdAndHospitalId(doctorId, hospitalId);
+
+        List<String> stringList = new ArrayList<>();
+
+        for(H2PMap h2p : h2pList){
+            User user = userRepo.findById(h2p.getPatientId());
+
+            JSONObject tmp = new JSONObject();
+
+            tmp.put("id",h2p.getId());
+            tmp.put("patientName",h2p.getPatientName());
+            tmp.put("patientId",h2p.getPatientId());
+            tmp.put("hospitalId",h2p.getHospitalId());
+            tmp.put("doctorId",h2p.getDoctorId());
+            tmp.put("labId",h2p.getLabId());
+            tmp.put("patientPhone",h2p.getPatientPhone());
+            tmp.put("status",h2p.getStatus());
+            tmp.put("admitDate",h2p.getAdmitDate());
+
+            tmp.put("dob",user.getDob());
+            tmp.put("photo",user.getPhoto());
+
+            stringList.add(tmp.toString());
+        }
+//        System.out.println(stringList);
+        return stringList;
+    }
+
+    @PostMapping(path="h2p/get-lab-patient-list")
+    private List<String> getLabPatientList(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+
+        String labId = jo.getString("labId");
+
+        List<H2PMap> h2pList = new ArrayList<>();
+
+        h2pList = h2pMapRepo.findByLabId(labId);
+
+        List<String> stringList = new ArrayList<>();
+
+        for(H2PMap h2p : h2pList){
+            User user = userRepo.findById(h2p.getPatientId());
+
+            JSONObject tmp = new JSONObject();
+
+            tmp.put("id",h2p.getId());
+            tmp.put("patientName",h2p.getPatientName());
+            tmp.put("patientId",h2p.getPatientId());
+            tmp.put("hospitalId",h2p.getHospitalId());
+            tmp.put("doctorId",h2p.getDoctorId());
+            tmp.put("labId",h2p.getLabId());
+            tmp.put("patientPhone",h2p.getPatientPhone());
+            tmp.put("status",h2p.getStatus());
+            tmp.put("admitDate",h2p.getAdmitDate());
+
+            tmp.put("dob",user.getDob());
+            tmp.put("photo",user.getPhoto());
+
+            stringList.add(tmp.toString());
+        }
+
+        return stringList;
+    }
+
+    @PostMapping(path="h2p/get-patient-data")
+    private String getPatientData(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+        String id = jo.getString("id");
+
+        H2PMap h2p = h2pMapRepo.findById(id);
+
+        User user = userRepo.findById(h2p.getPatientId());
+
+        JSONObject tmp = new JSONObject();
+
+        tmp.put("id",h2p.getId());
+        tmp.put("patientName",h2p.getPatientName());
+        tmp.put("patientId",h2p.getPatientId());
+        tmp.put("hospitalId",h2p.getHospitalId());
+        tmp.put("doctorId",h2p.getDoctorId());
+        tmp.put("labId",h2p.getLabId());
+        tmp.put("patientPhone",h2p.getPatientPhone());
+        tmp.put("status",h2p.getStatus());
+        tmp.put("admitDate",h2p.getAdmitDate());
+
+        tmp.put("gender",user.getGender());
+        tmp.put("dob",user.getDob());
+        tmp.put("photo",user.getPhoto());
+
+        return tmp.toString();
+    }
+
+    @PostMapping(path="h2p/discharge-patient")
+    private void dischargePatient(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+        String id = jo.getString("id");
+        h2pMapRepo.deleteById(id);
+    }
 }

@@ -18,23 +18,35 @@ public class Medication {
     @Column(name="user_id")
     private String userId;
 
+    @Column(name="age")
+    private int age;
+
+    @Column(name="gender")
+    private String gender;
+
     @Column(name="hospital_id")
     private String hospitalId;
 
     @Column(name="doctor_id")
     private String doctorId;
 
-    @Column(name="created_at",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date createdAt;
+    @Column(name="created_at")
+    private String createdAt;
 
-    @Column(name="prescription")
-    private String prescription;
+    @Column(name="form")
+    private String form;
 
-    public Medication(String userId, String hospitalId, String doctorId, String prescription) {
+    @Column(name="url")
+    private String url;
+
+    public Medication(String userId, int age, String gender, String hospitalId, String doctorId, String createdAt, String form, String url) {
         this.userId = userId;
+        this.age = age;
+        this.gender = gender;
         this.hospitalId = hospitalId;
         this.doctorId = doctorId;
-        this.prescription = prescription;
+        this.createdAt = createdAt;
+        this.form = form;
+        this.url = url;
     }
-
 }

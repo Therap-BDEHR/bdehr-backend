@@ -24,16 +24,17 @@ public class Report {
     @Column(name="doctor_id")
     private String doctorId;
 
-    @Column(name="created_at",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Date createdAt;
+    @Column(name="created_at")
+    private String createdAt;
 
     @Column(name="report")
     private String report;
 
-    public Report(String userId, String hospitalId, String doctorId, String report) {
+    public Report(String userId, String hospitalId, String doctorId, String report, String createdAt) {
         this.userId = userId;
         this.hospitalId = hospitalId;
         this.doctorId = doctorId;
         this.report = report;
+        this.createdAt = createdAt;
     }
 }

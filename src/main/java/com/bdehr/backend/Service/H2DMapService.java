@@ -87,6 +87,16 @@ public class H2DMapService {
         return stringList;
     }
 
+    @PostMapping(path="h2d/get-doctor-cnt")
+    private int getDoctorCnt(HttpEntity<String> httpEntity){
+        JSONObject jo = new JSONObject(httpEntity.getBody());
+        String hospitalId = jo.getString("hospitalId");
+
+        List<H2DMap> h2dList = h2dMapRepo.findByHospitalId(hospitalId);
+//        System.out.println("Doctor Count: "+h2dList.size());
+        return h2dList.size();
+    }
+
     @PostMapping(path="h2d/get-hospital-list")
     private List<Hospital> getHospitalList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());

@@ -125,4 +125,9 @@ public class HospitalRequestService{
     public List<HospitalRequest> getRequestList(){
         return hospitalRequestRepo.findAll();
     }
+
+    @GetMapping(path="hospital-request/get-request-cnt")
+    public int getRequestListSize(){
+        return hospitalRequestRepo.findAll().size();
+    }
 }
