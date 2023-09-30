@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Official v0.95">
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2PMapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2PMapService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2PMapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2PMapService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +236,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696089166429</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="bug fix">
+      <created>1696092965408</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1696092965408</updated>
+    </task>
+    <task id="LOCAL-00024" summary="bug fix">
+      <created>1696093046502</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1696093046502</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -257,6 +271,7 @@
     <MESSAGE value="Medication Database" />
     <MESSAGE value="Official v0.9" />
     <MESSAGE value="Official v0.95" />
-    <option name="LAST_COMMIT_MESSAGE" value="Official v0.95" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
 </project>
