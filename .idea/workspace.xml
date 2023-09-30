@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Official v0.9">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/DataRequestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Interface/ResearchOrgRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DataRequestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/ResearchOrgService.java" afterDir="false" />
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Official v0.95">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/H2PMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/H2PMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/H2DMapRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Interface/H2DMapRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2DMapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/H2DMapService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/MessageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2PMapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/H2PMapService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696029364450</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Official v0.95">
+      <created>1696089166429</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1696089166429</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -258,6 +256,7 @@
     <MESSAGE value="Machine Database" />
     <MESSAGE value="Medication Database" />
     <MESSAGE value="Official v0.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="Official v0.9" />
+    <MESSAGE value="Official v0.95" />
+    <option name="LAST_COMMIT_MESSAGE" value="Official v0.95" />
   </component>
 </project>

@@ -70,6 +70,7 @@ public class H2PMapService {
     @PostMapping(path="h2p/get-hospital-patient-list")
     public List<String> getHospitalPatientList(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
+        System.out.println("Here: "+jo);
         String hospitalId = jo.getString("hospitalId");
 
         List<H2PMap> h2pList = new ArrayList<>();
@@ -98,8 +99,11 @@ public class H2PMapService {
 
             if(h2p.getDoctorId()!=null) {
                 Doctor doctor = doctorRepo.findById(h2p.getDoctorId());
+//                System.out.println(doctor);
                 tmp.put("doctorId",h2p.getDoctorId());
-                tmp.put("doctorName", doctor.getName());
+                if(doctor!=null) {
+                    tmp.put("doctorName", doctor.getName());
+                }
             }
             else{
                 tmp.put("doctorId","");
