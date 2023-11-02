@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Pharma Company Added">
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Phone added in company">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Entity/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/CompanyService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698946635331</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Phone added in company">
+      <created>1698948925733</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1698948925733</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -306,6 +311,7 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="Pharam Company Added" />
     <MESSAGE value="Pharma Company Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pharma Company Added" />
+    <MESSAGE value="Phone added in company" />
+    <option name="LAST_COMMIT_MESSAGE" value="Phone added in company" />
   </component>
 </project>
