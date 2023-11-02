@@ -21,6 +21,8 @@ public class Company {
     private String password;
     @Column(name="email")
     private String email;
+    @Column(name="phone")
+    private String phone;
     @Column(name="logo")
     private String logo;
     @Column(name="factory_address")
@@ -34,10 +36,11 @@ public class Company {
     @Column(name="longitude")
     private String longitude;
 
-    public Company(String name, String password, String email, String factoryAddress, String factoryAbout, String latitude, String longitude) {
+    public Company(String name, String password, String email,String phone, String factoryAddress, String factoryAbout, String latitude, String longitude) {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.phone = phone;
         this.factoryAddress = factoryAddress;
         this.factoryAbout = factoryAbout;
         this.latitude = latitude;

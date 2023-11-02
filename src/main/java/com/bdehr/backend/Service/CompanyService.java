@@ -39,7 +39,7 @@ public class CompanyService {
 
         if(tmp!=null)  return "0";
 
-        Company company = new Company(name,password,email,factoryAddress,factoryAbout,latitude,longitude);
+        Company company = new Company(name,password,email,phone,factoryAddress,factoryAbout,latitude,longitude);
 
         String customId;
         while(true){
