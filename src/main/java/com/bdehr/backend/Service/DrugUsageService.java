@@ -62,7 +62,9 @@ public class DrugUsageService {
         String filterChemicalName = jo.getString("filterChemicalName");
         String filterInterval = jo.getString("filterInterval");
 
-        List<DrugUsage> drugUsageList = drugUsageRepo.findAll();
+        String company = jo.getString("company");
+
+        List<DrugUsage> drugUsageList = drugUsageRepo.findByCompany(company);
 
         if(!Objects.equals(filterBrand, "")){
             List<DrugUsage> tmpList = new ArrayList<>();
