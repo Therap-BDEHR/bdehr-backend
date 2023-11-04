@@ -7,10 +7,7 @@ import jakarta.transaction.Transactional;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -117,6 +114,11 @@ public class DrugService {
         JSONObject jo = new JSONObject(httpEntity.getBody());
         String company = jo.getString("company");
         return drugRepo.findByCompany(company);
+    }
+
+    @GetMapping("drug/get-all-drugs")
+    public List<Drug> getAllDrugs(){
+        return drugRepo.findAll();
     }
 
     @PostMapping("drug/increase-unitSold")

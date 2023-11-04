@@ -21,26 +21,23 @@ public class DrugUsage {
     private String generic;
     @Column(name="date")
     private String date;
-    @Column(name="user_id")
-    private String userId;
+    @Column(name="patient_id")
+    private String patientId;
     @Column(name="company")
     private String company;
     @Column(name="hospital")
     private String hospital;
-    @Column(name="latitude")
-    private String latitude;
-    @Column(name="longitude")
-    private String longitude;
+    @Column(name="category")
+    private String category;
 
-    public DrugUsage(String name, String variant, String generic, String date, String userId, String company, String hospital, String latitude, String longitude) {
+    public DrugUsage(String name, String variant, String generic, String date, String patientId, String company, String hospital, String category) {
         this.name = name;
         this.variant = variant;
         this.generic = generic;
         this.date = date;
-        this.userId = userId;
+        this.patientId = patientId;
         this.company = company;
         this.hospital = hospital;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.category = category;
     }
 }
