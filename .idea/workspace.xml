@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Pharma analytics added">
+    <list default="true" id="3b24d61f-a7d2-4440-8e39-4b951b9d99b1" name="Changes" comment="Bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/DrugUsage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Entity/DrugUsage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DrugService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DrugService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DrugUsageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdehr/backend/Service/DrugUsageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DrugUsageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdehr/backend/Service/DrugUsageService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -311,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699114245747</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Bug fix">
+      <created>1699116360108</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1699116360108</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -337,6 +344,7 @@
     <MESSAGE value="Pharma Company Added" />
     <MESSAGE value="Phone added in company" />
     <MESSAGE value="Pharma analytics added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pharma analytics added" />
+    <MESSAGE value="Bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
   </component>
 </project>

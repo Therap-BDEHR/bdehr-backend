@@ -34,6 +34,7 @@ public class DrugUsageService {
     public void addUsage(HttpEntity<String> httpEntity){
         JSONObject jo = new JSONObject(httpEntity.getBody());
         System.out.println("Drug Usage: "+jo);
+
         String name = jo.getString("name");
         String variant = jo.getString("variant");
         String generic = jo.getString("generic");
